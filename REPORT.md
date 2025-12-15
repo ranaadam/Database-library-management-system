@@ -56,5 +56,5 @@ ERD RELATIONSHIPS
 •	Borrow 1 — 1 Return
 
 
-[ERD Diagram] (ERD Database.png)
+![ERD Diagram](ERD%20Database.png)
 
