@@ -56,4 +56,6 @@ ERD RELATIONSHIPS
 •	Borrow 1 — 1 Return
 
 
-ERD Diagram (images/ERD Database.png) 
+ERD Diagram 
+(ERD Database.png)
+
