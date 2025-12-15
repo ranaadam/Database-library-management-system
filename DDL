@@ -1,0 +1,42 @@
+CREATE TABLE Book (
+    BookID SERIAL PRIMARY KEY,
+    Title VARCHAR(150) NOT NULL,
+    AuthorID INT REFERENCES Author(AuthorID),
+    Category VARCHAR(50),
+    PublishedYear INT,
+    CopiesAvailable INT DEFAULT 1
+);
+
+CREATE TABLE Member (
+    MemberID SERIAL PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(20),
+    JoinDate DATE DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE Staff (
+    StaffID SERIAL PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Position VARCHAR(50)
+);
+
+CREATE TABLE Borrow (
+    BorrowID SERIAL PRIMARY KEY,
+    MemberID INT REFERENCES Member(MemberID),
+    BookID INT REFERENCES Book(BookID),
+    StaffID INT REFERENCES Staff(StaffID),
+    BorrowDate DATE DEFAULT CURRENT_DATE,
+    DueDate DATE
+);
+
+CREATE TABLE Return (
+    ReturnID SERIAL PRIMARY KEY,
+    BorrowID INT REFERENCES Borrow(BorrowID),
+    ReturnDate DATE DEFAULT CURRENT_DATE,
+    ConditionReturned VARCHAR(50)
+);CREATE TABLE Author (
+    AuthorID SERIAL PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Country VARCHAR(50)
+);
